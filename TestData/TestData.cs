@@ -15,6 +15,11 @@
                 username="rocko",
                 password="rocko10-lazniPasos2";
         }
+        public static class Login
+        {
+            public const string username = "test",
+                                password = "test";
+        }
     }
 }
 
