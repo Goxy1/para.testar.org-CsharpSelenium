@@ -4,28 +4,29 @@ namespace AutomationFramework.Pages
 {
     public class RegisterUserPage:BasePage
     {
-        
+
         /// <summary>
-        /// Konstruktor bez parametra
+        /// Kontstruktor bez parametra
         /// </summary>
-        public RegisterUserPage() 
+        public RegisterUserPage()
         {
             driver = null;
         }
-       
+
         /// <summary>
-        /// Konstruktor sa parametrima
+        /// Konstruktor sa parametrom
         /// </summary>
-        /// <param name="webDriver"></param>
+        /// <param name="webDriver">driver</param>
         public RegisterUserPage(IWebDriver webDriver)
         {
             driver = webDriver;
         }
 
-        //Locator
+        // Locators
+
         By firstNameField = By.Id("customer.firstName");
         By lastNameField = By.Id("customer.lastName");
-        By adressField = By.Id("customer.address.street");
+        By addressField = By.Id("customer.address.street");
         By cityField = By.Id("customer.address.city");
         By stateField = By.Id("customer.address.state");
         By zipCodeField = By.Id("customer.address.zipCode");
@@ -34,54 +35,108 @@ namespace AutomationFramework.Pages
         By usernameField = By.Id("customer.username");
         By passwordField = By.Id("customer.password");
         By confirmPasswordField = By.Id("repeatedPassword");
-        By registerDugme = By.XPath("//input[@value ='Register']");
+        By registerButton = By.XPath("//input[@value='Register']");
         By usernameTitle = By.XPath("//div[@id='rightPanel']/h1");
-       
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje First Name
+        /// </summary>
+        /// <param name="firstName">First name</param>
         private void EnterFirstName(string firstName)
         {
-            WriteTextToElement(firstNameField, firstName);
+            WriteText(firstNameField, firstName);
         }
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje Last Name
+        /// </summary>
+        /// <param name="lastName">Last name</param>
         private void EnterLastName(string lastName)
         {
-            WriteTextToElement(lastNameField, lastName);
+            WriteText(lastNameField, lastName);
         }
-        private void EnterAdress(string adress)
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje Address
+        /// </summary>
+        /// <param name="address">Address</param>
+        private void EnterAddress(string address)
         {
-            WriteTextToElement(adressField, adress);
+            WriteText(addressField, address);
         }
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje City
+        /// </summary>
+        /// <param name="city">City</param>
         private void EnterCity(string city)
         {
-            WriteTextToElement(cityField, city);
+            WriteText(cityField, city);
         }
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje State
+        /// </summary>
+        /// <param name="state">State</param>
         private void EnterState(string state)
         {
-            WriteTextToElement(stateField, state);
+            WriteText(stateField, state);
         }
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje Zip Code
+        /// </summary>
+        /// <param name="zipCode">Zip code</param>
         private void EnterZipCode(string zipCode)
         {
-            WriteTextToElement(zipCodeField, zipCode);
+            WriteText(zipCodeField, zipCode);
         }
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje Phone
+        /// </summary>
+        /// <param name="phone">Phone</param>
         private void EnterPhone(string phone)
         {
-            WriteTextToElement(phoneField, phone);
+            WriteText(phoneField, phone);
         }
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje SSN
+        /// </summary>
+        /// <param name="ssn">SSN</param>
         private void EnterSsn(string ssn)
         {
-            WriteTextToElement(ssnField, ssn);
+            WriteText(ssnField, ssn);
         }
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje Username
+        /// </summary>
+        /// <param name="username">Username</param>
         private void EnterUsername(string username)
         {
-            WriteTextToElement(usernameField, username);
+            WriteText(usernameField, username);
         }
-        private void EnterPassword(string password)
+
+        /// <summary>
+        /// Metoda koja unosi vrednost u polje Password
+        /// </summary>
+        /// <param name="password">Password</param>
+        private void EnterAndConfirmPassword(string password)
         {
-            WriteTextToElement(passwordField, password);
-            WriteTextToElement(confirmPasswordField, password);
+            WriteText(passwordField, password);
+            WriteText(confirmPasswordField, password);
         }
+
+        /// <summary>
+        /// Metoda koja klikne na dugme Register
+        /// </summary>
         private void ClickOnRegisterButton()
         {
-            ClickOnElement(registerDugme);
+            ClickElement(registerButton);
         }
+
         /// <summary>
         /// Metoda koja vraca ime usera
         /// </summary>
@@ -91,18 +146,33 @@ namespace AutomationFramework.Pages
             return CommonMethods.ReadTextFromElement(driver, usernameTitle);
         }
 
-        public void RegisterUser(string firstName, string lastName, string address, string city, string state, string zipCode, string phone, string ssn,string username,string password)
+        /// <summary>
+        /// Metoda koja popunjava formu za registraciju korisnika
+        /// </summary>
+        public void RegisterUser(
+            string firstName,
+            string lastName,
+            string address,
+            string city,
+            string state,
+            string zipCode,
+            string phone,
+            string ssn,
+            string username,
+            string password
+        )
         {
             EnterFirstName(firstName);
             EnterLastName(lastName);
-            EnterAdress(address);
+            EnterAddress(address);
             EnterCity(city);
             EnterState(state);
             EnterZipCode(zipCode);
             EnterPhone(phone);
             EnterSsn(ssn);
             EnterUsername(username);
-            EnterPassword(password);
+            EnterAndConfirmPassword(password);
+            ClickOnRegisterButton();
         }
     }
 }

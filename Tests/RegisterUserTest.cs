@@ -5,13 +5,14 @@ namespace AutomationFramework.Tests
 {
     public class RegisterUserTest:BaseTest
     {
-        string _username = CommonMethods.GenerateRandomUsernmae();
+        string _username = CommonMethods.GenerateRandomUsername("Marija");
+
         [Test]
         public void RegisterUser()
         {
             Pages.HomePage.ClickOnRegisterLink();
 
-            //Registration test
+            // Registration test
             Pages.RegisterUserPage.RegisterUser(
                 TestData.TestData.RegisterUser.firstName,
                 TestData.TestData.RegisterUser.lastName,
@@ -22,14 +23,16 @@ namespace AutomationFramework.Tests
                 TestData.TestData.RegisterUser.phone,
                 TestData.TestData.RegisterUser.ssn,
                 _username,
-                TestData.TestData.RegisterUser.password); 
+                TestData.TestData.RegisterUser.password
+            );
 
-            //Asertacija testa - Assert test
-            //string registerUsername = Pages.RegisterUserPage.GetUsername();
-           // Assert.AreEqual(
-            //    $"{AppConstants.Constants.usernameTitle} {_username,registerUsername, 
-            //    $"Poruka treba da bude {AppConstants.Constants.GenericMessage.usernameTitle} {TestData.TestData.RegisterUser.username}"}");
-
+            // Asertacija testa - Assert test
+            string registerUsername = Pages.RegisterUserPage.GetUsername();
+            Assert.AreEqual(
+                $"{AppConstants.Constants.GenericMessage.usernameTitle} {_username}",
+                registerUsername,
+                $"Poruka treba da bude {AppConstants.Constants.GenericMessage.usernameTitle} {_username}"
+            );
         }
     }
 }

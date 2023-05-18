@@ -26,37 +26,20 @@ namespace AutomationFramework.Pages
         /// <summary>
         /// Metoda koja klikne na element
         /// </summary>
-        public void ClickOnElement(By element)
+        public void ClickElement(By element)
         {
             WaitElementVisibility(element);
-            CommonMethods.ClickOnElement(driver,element);
+            CommonMethods.ClickOnElement(driver, element);
         }
 
         /// <summary>
         /// Metoda koja upisuje vrednost u polje
         /// </summary>
-        public void WriteTextToElement(By element, string text)
+        public void WriteText(By element, string text)
         {
             WaitElementVisibility(element);
             CommonMethods.WriteTextToElement(driver, element, text);
         }
-
-        /// <summary>
-        /// Metoda koja cita text iz elementa
-        /// </summary>
-        public string ReadTextFromElement(By element)
-        {
-            WaitElementVisibility(element);
-            return driver.FindElement(element).Text;
-        }
-
-        /// <summary>
-        /// Metoda koja cita text iz alert box-a
-        /// </summary>
-        public string ReadTextFromAlertBox()
-        {
-            return driver.SwitchTo().Alert().Text;
-        }  
     }
     
 }
