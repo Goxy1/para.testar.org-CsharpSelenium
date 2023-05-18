@@ -11,7 +11,8 @@ namespace AutomationFramework.AppConstants
         public static class GenericMessage
         {
             public const string usernameTitle = "Welcome",
-                successContactUs = "Your account was created successfully. You are now logged in.";
+                                 successContactUs = "A Customer Care Representative will be contacting you.",
+                                 openedAccountTitle = "Account Opened!";
 
         }
     }

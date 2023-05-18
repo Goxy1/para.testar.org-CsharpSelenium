@@ -24,5 +24,9 @@ namespace AutomationFramework.Utils
         public HomePage HomePage => GetPages<HomePage>();
         public ContactPage ContactPage => GetPages<ContactPage>();
         public CustomerLookupPage CustomerLookupPage => GetPages<CustomerLookupPage>();
+        public OverviewPage OverviewPage => GetPages<OverviewPage>();
+        public OpenAccountPage OpenAccountPage => GetPages<OpenAccountPage>();
+        public ActivityPage ActivityPage => GetPages<ActivityPage>();
+
     }
 }
