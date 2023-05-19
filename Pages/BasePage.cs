@@ -40,6 +40,16 @@ namespace AutomationFramework.Pages
             WaitElementVisibility(element);
             CommonMethods.WriteTextToElement(driver, element, text);
         }
+        /// <summary>
+        /// Metoda koja klikne odredjeni link u meniju
+        /// </summary>
+        /// <param name="menuItem">Link u meniju</param>
+        public void ClickOnMenuItem(string menuItem)
+        {
+            string menuItemXpath = $"//a[contains(.,'{menuItem}')]";
+            By menuItemLocator = By.XPath(menuItemXpath);
+            driver.FindElement(menuItemLocator).Click();
+        }
     }
     
 }

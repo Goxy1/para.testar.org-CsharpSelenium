@@ -9,11 +9,18 @@ namespace AutomationFramework.Pages
 {
     public class CustomerLookupPage : BasePage
     {
+        /// <summary>
+        /// Konstruktor bez paramtra
+        /// </summary>
         public CustomerLookupPage()
         {
             driver = null;
         }
 
+        /// <summary>
+        /// Konstruktor sa parametrima
+        /// </summary>
+        /// <param name="webDriver">driver</param>
         public CustomerLookupPage(IWebDriver webDriver)
         {
             driver = webDriver;

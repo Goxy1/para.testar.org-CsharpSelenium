@@ -11,6 +11,7 @@ namespace AutomationFramework.Utils
     public class CommonMethods
     {
 
+
         /// <summary>
         /// Metoda koja klikne na element
         /// </summary>
@@ -29,6 +30,7 @@ namespace AutomationFramework.Utils
         /// <param name="text">text koji upisujemo</param>
         public static void WriteTextToElement(IWebDriver driver, By element, string text)
         {
+            driver.FindElement(element).Clear();
             driver.FindElement(element).SendKeys(text);
         }
 
@@ -111,6 +113,7 @@ namespace AutomationFramework.Utils
                 return false;
             }
         }
+
         /// <summary>
         /// Metoda koja vraca sve opcije iz select elementa
         /// </summary>

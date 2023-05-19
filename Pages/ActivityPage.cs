@@ -10,11 +10,18 @@ namespace AutomationFramework.Pages
 {
     public class ActivityPage:BasePage
     {
+        /// <summary>
+        /// Konstruktor bez paramtra
+        /// </summary>
         public ActivityPage()
         {
             driver = null;
         }
 
+        /// <summary>
+        /// Konstruktor sa parametrima
+        /// </summary>
+        /// <param name="webDriver">driver</param>
         public ActivityPage(IWebDriver webDriver)
         {
             driver = webDriver;
